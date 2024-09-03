@@ -1,0 +1,469 @@
+*{
+margin: 0px;
+padding: 0px;
+font-family: Arial, Helvetica, sans-serif;
+box-sizing: border-box;
+}
+/* body{
+    background-color: #ccc;
+} */
+/* <!--========================= Top-Bar =========================--> */
+a{
+    text-decoration: none;
+}
+.flex-div{
+    display: flex;
+    align-items: center;
+}
+nav{
+    width: 100%;
+    position: fixed;
+    padding: 10px 2%;
+    justify-content: space-between;
+    background-color: #fff;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 0 0 0#fff;
+}
+.nav-right img{
+    width: 25px;
+    margin-right: 25px;
+}
+.nav-right .user-icon{
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 0;
+}
+.nav-left .menu-icon{
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
+}
+.nav-left .menu-icon:hover{
+    background-color: #f0eded;
+    border-radius: 50%;
+}
+.nav-middle .search-box{
+    border: 1px solid #f0eded;
+    margin-right: 15px;
+    padding: 8px 12px;
+    border-radius: 25px;
+    width: 500px;
+}
+::placeholder{
+    font-size:16px;
+}
+.nav-left .logo {
+    width: 120px;
+    margin-left: 10px;
+}
+.mic{
+    background-color: #f0eded;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.mic:hover{
+    background-color: #ccc;
+}
+.nav-middle .mic-icon {
+    width: 25px;
+    position: relative;
+    top: 7px;
+    left: 7px;
+}
+.nav-middle .search-box {
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 20px;
+    flex: 1;
+}
+
+.nav-middle .search-box input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 10px;
+}
+
+.nav-middle .search-box button {
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    position: relative;
+    bottom: 2px;
+    right: 5px;
+}
+
+.nav-middle .search-box button:active {
+    background-color: #ccc;
+}
+
+.nav-middle .search-box img {
+    width: 15px;
+    
+}
+
+/* Hide search box and mic icon by default */
+.hidden {
+    display: none;
+}
+
+.close-icon {
+    display: none; 
+}
+
+.search-box {
+    position: relative;
+}
+
+.close-icon {
+    position: absolute; 
+    top: 50%;
+    right: 35px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+    font-size: 30px;
+}
+
+/* Android mobile responsive */
+
+@media screen and (max-width: 909px){
+    .nav-middle .search-box{
+        width: 300px;
+    }
+}
+@media screen and (max-width: 700px){
+    .nav-middle .search-box{
+        width: 190px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .nav-left .menu-icon {
+        width: 35px;
+        height: 40px;
+        margin-left: -5px;
+    }
+
+    .nav-left .logo {
+        width: 80px;
+    }
+
+    .nav-right img {
+        width: 20px;
+        margin-right: 10px;
+    }
+    .search{
+        position: relative;
+        right: 0px;
+    }
+    .Upload, .user-icon, .nav-middle .search-box, .mic-icon, .More{
+        display: none;
+    }
+    .mic{
+        background-color: #fff;
+    }
+    .mic:active{
+        background-color: #f0eded;
+    }
+    .nav-right .user-icon {
+        width: 30px;
+    }
+
+    .nav-middle .search-box input {
+        width: calc(100% - 40px);
+    }
+
+    .nav-middle .search-box button {
+        width: 25px;
+        height: 25px;
+        position: relative;
+        left: 13px;
+    }
+    .nav-middle .search-box button:active{
+        background-color: #ccc;
+    }
+
+    .nav-middle .search-box img {
+        width: 18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .mic {
+        display: inline-block;
+    }
+}
+
+
+/* Show the search icon on screens with a maximum width of 600px */
+@media screen and (max-width: 600px) {
+    .search {
+        display: block;
+    }
+    .cast{
+        display: block;
+    }
+}
+
+/* Hide the search icon on screens with a minimum width of 601px */
+@media screen and (min-width: 601px) {
+    .search {
+        display: none;
+    }
+    .cast{
+        display: none;
+    }
+}
+
+/* <!--========================= Side-Bar =========================--> */
+
+.side-bar {
+    position: fixed;
+    top:134px;
+    left: 0;
+    min-width: 250px;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: #fff;
+    padding-right: 10px;
+    z-index: 10;
+}
+
+.links {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    color: #242424;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.links img {
+    height: 25px;
+    margin-right: 20px;
+    color: #242424;
+}
+.seperator {
+    border: none;
+    border-bottom: 1px solid #0c0c0c;
+    margin: 20px 0px;
+}
+
+/* Initially hide the sidebar */
+.side-bar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+/* Show the sidebar when .show-sidebar is applied */
+.show-sidebar {
+    transform: translateX(0);
+}
+/* Your existing CSS */
+
+/* Adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .side-bar {
+        top: 120px;
+        width: 200px;
+        position: fixed;
+     /* Adjust the width as needed */
+    }
+}
+
+
+/* <!--========================= Filters =========================--> */
+
+/* Base styles */
+.filters {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 74px;
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    z-index: 10; /* Increase z-index to ensure it appears above other elements */
+    transition: left 0.3s ease; /* Add transition for smooth movement */
+}
+
+.filters::-webkit-scrollbar {
+    display: none; 
+}
+
+.filter-options {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid #dbdbdb;
+    text-transform: capitalize;
+    margin-right: 10px;
+    margin-top: 10px;
+    color: #000;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.filter-options.black {
+    background-color: #000;
+    color: #fff;
+}
+
+.filter-options:active,
+.filter-options:focus {
+    background-color: #000;
+    outline: none;
+}
+
+.left {
+    position: fixed;
+    left: 16.5%;
+    top: 13%;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; 
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .filters {
+        left: 0;
+        width: 100%;
+        padding: 0 10px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .filters {
+        top: 60px; /* Adjust top position for smaller screens */
+    }
+
+    .left {
+        left: 5%;
+    }
+}
+
+
+/* <!--========================= Videos =========================--> */
+
+/* For larger screens */
+.video-Container {
+    width: 100%;
+    margin-top: 120px;
+    /* margin-left: 250px; */
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 20px;
+    overflow: hidden;
+}
+
+.thumbnail {
+    width: 350px;
+    height: 225px;
+    border-radius: 15px;
+    transition: ease 1s;
+}
+
+.content {
+    width: calc(100% - 80px);
+    height: auto;
+    padding: 10px;
+}
+
+.channel-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: -2px;
+}
+
+.title {
+    max-height: 44px;
+    width: 265px;
+    line-height: 22px;
+    font-size: 16px;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    left: 55px;
+    bottom: 40px;
+    z-index: -1;
+}
+.info{
+    height: 0px;
+}
+.channel-name {
+    font-size: 14px;
+    margin: 2px 0;
+    color: #979797;
+    margin-left: 6px;
+    margin-top: -5px;
+    position: relative;
+    left: 50px;
+    bottom: 45px;
+    width: 300px;
+    z-index: -1;
+}
+
+/* For smaller screens like Android mobile devices */
+@media screen and (max-width: 767px) {
+    .video-Container {
+        width: 100%;
+        margin-top: 130px;
+        padding: 10px;
+        grid-template-columns: 1fr;
+        margin-left: 10px;
+    }
+
+    .thumbnail {
+        width: 100%;
+        border-radius: 0;
+        transition: none;
+    }
+
+    .content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 14px;
+        margin-left: -10px;
+    }
+
+    .channel-name {
+        font-size: 12px;
+        margin-left: -5px;
+    }
+}
+.video {
+    width: calc(25% - 20px); /* Adjusted width for four videos per row */
+    display: inline-block;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+/* For smaller screens like Android mobile devices */
+@media screen and (max-width: 767px) {
+    .video {
+        width: calc(100% - 20px); /* Full width for one video per row */
+    }
+}
+
